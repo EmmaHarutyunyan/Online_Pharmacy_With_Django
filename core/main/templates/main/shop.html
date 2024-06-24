@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<title>{% block title %}Shop{% endblock %}</title>
+
+<div class="bg-light py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-0"><a href="{% url 'index' %}">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Store</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
+        <form method="GET" action="{% url 'shop' %}">
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <label class="sr-only" for="min_price">Min Price</label>
+              <input type="number" class="form-control mb-2" id="min_price" name="min_price" placeholder="Min Price" value="{{ request.GET.min_price }}">
+            </div>
+            <div class="col-auto">
+              <label class="sr-only" for="max_price">Max Price</label>
+              <div class="input-group mb-2">
+                <input type="number" class="form-control" id="max_price" name="max_price" placeholder="Max Price" value="{{ request.GET.max_price }}">
+              </div>
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-2">Apply</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-6 text-lg-right">
+        <h3 class="mb-3 h6 text-uppercase text-black d-block">Sort by</h3>
+        <div class="dropdown">
+          <button class="btn btn-primary btn-md dropdown-toggle px-4" type="button" id="dropdownMenuReference"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Reference
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+            <a class="dropdown-item" href="{% url 'shop' %}?sort=relevance">Relevance</a>
+            <a class="dropdown-item" href="{% url 'shop' %}?sort=name_asc">Name, A to Z</a>
+            <a class="dropdown-item" href="{% url 'shop' %}?sort=name_desc">Name, Z to A</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'shop' %}?sort=price_asc">Price, low to high</a>
+            <a class="dropdown-item" href="{% url 'shop' %}?sort=price_desc">Price, high to low</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="site-section bg-light">
+  <div class="container">
+    <div class="row" id="product-list">
+      {% for product in products %}
+      <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+        <div class="card">
+          {% if product.on_sale %}
+          <span class="onsale">Sale</span>
+          {% endif %}
+          <a href="{% url 'shop_single' product.id %}">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <h3 class="card-title"><a href="{% url 'shop_single' product.id %}">{{ product.name }}</a></h3>
+            {% if product.on_sale %}
+            <p class="card-text"><del>${{ product.price }}</del> &mdash; ${{ product.sale_price }}</p>
+            {% else %}
+            <p class="card-text">${{ product.price }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12 text-center">
+        <div class="site-block-27">
+          <ul>
+            <!-- Pagination or navigation links -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
