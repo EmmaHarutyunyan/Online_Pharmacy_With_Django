@@ -12,7 +12,7 @@ Shop Page (shop.html): Lists all available products with options to filter by pr
 Product Details Page (shop_single.html): Displays detailed information about a specific product, including its image, name, price, and description. Customers can add the product to their cart directly from this page.
 
 # Installation
-2. **Clone this repository:**
+1. **Clone this repository:**
 ```bash
 git clone https://github.com/EmmaHarutyunyan/Online_Pharmacy_With_Django.git
 ```
