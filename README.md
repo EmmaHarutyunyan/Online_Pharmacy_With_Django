@@ -11,7 +11,7 @@ Shop Page (shop.html): Lists all available products with options to filter by pr
 
 Product Details Page (shop_single.html): Displays detailed information about a specific product, including its image, name, price, and description. Customers can add the product to their cart directly from this page.
 
-https://github.com/user-attachments/assets/471a70d0-994a-4db6-889c-ed7b9f7cbf8f
+[https://github.com/user-attachments/assets/471a70d0-994a-4db6-889c-ed7b9f7cbf8f](https://github.com/user-attachments/assets/b8766805-9946-4a76-9696-78b60c28cc27)
 
 
 https://github.com/user-attachments/assets/a37041ec-b932-41c8-99b9-82f134a84ea0
