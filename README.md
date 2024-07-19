@@ -1,4 +1,4 @@
-# Online Pharmacy With Django
+# Online Pharmacy Shop With Django
 Welcome to the Online Pharmacy Shop! This repository contains the codebase for an online pharmacy website built using Django. Below is a brief overview of the structure and functionality of the website.
 Description
 This project implements a modern and user-friendly online pharmacy where customers can browse and purchase medicines conveniently from their homes. Here's a breakdown of its components:
